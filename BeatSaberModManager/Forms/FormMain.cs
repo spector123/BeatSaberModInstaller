@@ -258,6 +258,7 @@ namespace BeatSaberModManager
                                 check.disabled = false;
                                 check.itemHandle.Checked = check.installPreviousState;
                             }
+                            resolveDependencies(check, action, defaults);
                         }
                     }
                 }

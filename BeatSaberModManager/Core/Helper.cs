@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 using System.Reflection;
+using BeatSaberModManager.Dependencies.SimpleJSON;
 
 namespace BeatSaberModManager.Core
 {
@@ -14,6 +15,8 @@ namespace BeatSaberModManager.Core
 
         private static void CreateHttpErrorLog(WebException ex)
         {
+            string response = ex.Response != null ? new StreamReader(ex.Response.GetResponseStream()).ReadToEnd().ToString() : "none";
+
             string[] text =
             {
                 "################################################################",
@@ -34,30 +37,32 @@ namespace BeatSaberModManager.Core
                 ex.ToString(),
                 "----------------------------------------------------------------",
                 "Complete response :",
-                new StreamReader(ex.Response.GetResponseStream()).ReadToEnd(),
+                response,
                 "----------------------------------------------------------------"
             };
-            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"BeatSaberModManager-{DateTime.Now:s}.log");
+            string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"BeatSaberModManager_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.log");
             
             System.IO.File.WriteAllLines(filePath, text);
         }
         public static string Get(string URL) {
 
-            try {
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(URL);
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest) HttpWebRequest.Create(URL);
                 request.Method = "GET";
                 request.KeepAlive = true;
                 request.ContentType = "application/x-www-form-urlencoded";
                 request.UserAgent = $"BeatSaberModManager/{Assembly.GetEntryAssembly().GetName().Version}";
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                using (StreamReader requestReader = new StreamReader(response.GetResponseStream())) {
+                HttpWebResponse response = (HttpWebResponse) request.GetResponse();
+                using (StreamReader requestReader = new StreamReader(response.GetResponseStream()))
+                {
                     return requestReader.ReadToEnd();
                 }
             }
-            catch (Exception ex) {
+            catch (WebException ex) {
                 MessageBox.Show($"Error trying to access: {URL}\n\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 #if DEBUG
-                if (ex is WebException) CreateHttpErrorLog(ex);
+                CreateHttpErrorLog(ex);
 #endif
                 Environment.Exit(0);
                 return null;

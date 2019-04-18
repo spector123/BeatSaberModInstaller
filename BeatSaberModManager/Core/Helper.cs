@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 using System.Reflection;
-using BeatSaberModManager.Dependencies.SimpleJSON;
 
 namespace BeatSaberModManager.Core
 {

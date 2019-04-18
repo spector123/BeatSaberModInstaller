@@ -15,7 +15,6 @@ namespace BeatSaberModManager.Core
         private static void CreateHttpErrorLog(WebException ex)
         {
             string response = ex.Response != null ? new StreamReader(ex.Response.GetResponseStream()).ReadToEnd().ToString() : "none";
-
             string[] text =
             {
                 "################################################################",

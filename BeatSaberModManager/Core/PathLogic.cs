@@ -157,6 +157,8 @@ namespace BeatSaberModManager.Core
                             FormPlatformSelect selector = new FormPlatformSelect(this);
                             selector.ShowDialog();
                             found = true;
+                            Properties.Settings.Default.InstallPath = path;
+                            Properties.Settings.Default.Save();
                             return path;
                         }
                         else

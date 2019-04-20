@@ -514,7 +514,7 @@ namespace BeatSaberModManager
             }
             else if (Uri.IsWellFormedUriString(infoLink, UriKind.RelativeOrAbsolute))
             {
-                Process.Start(((ReleaseInfo)listViewMods.SelectedItems[0].Tag).infoLink);
+                Process.Start(infoLink);
             }
             else
             {
@@ -566,7 +566,7 @@ namespace BeatSaberModManager
                 }
                 else if (Uri.IsWellFormedUriString(infoLink, UriKind.RelativeOrAbsolute))
                 {
-                    Process.Start(((ReleaseInfo)listViewMods.SelectedItems[0].Tag).infoLink);
+                    Process.Start(infoLink);
                 }
                 else
                 {

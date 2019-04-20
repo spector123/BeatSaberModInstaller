@@ -320,6 +320,29 @@ namespace BeatSaberModManager
             Properties.Settings.Default.Save();
             ReRenderListView();
         }
+        
+        private void ProcessInfoLink(string infoLink)
+        {
+            if (infoLink == null)
+            {
+                MessageBox.Show("No info link was provided by this mod.");
+            }
+            else if (Uri.IsWellFormedUriString(infoLink, UriKind.RelativeOrAbsolute))
+            {
+                try
+                {
+                    Process.Start(infoLink);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Could not open info link provided by this mod:\n{infoLink}", "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"The info link provided by this mod is invalid.\n{infoLink}", "Error");
+            }
+        }
         #endregion
 
         #region Event Handlers
@@ -508,18 +531,7 @@ namespace BeatSaberModManager
             this.Opacity = 0.8;
             //new FormDetailViewer((ReleaseInfo)listViewMods.SelectedItems[0].Tag).ShowDialog();
             string infoLink = ((ReleaseInfo) listViewMods.SelectedItems[0].Tag).infoLink;
-            if (infoLink == null)
-            {
-                MessageBox.Show("No info link was provided by this mod.");
-            }
-            else if (Uri.IsWellFormedUriString(infoLink, UriKind.RelativeOrAbsolute))
-            {
-                Process.Start(infoLink);
-            }
-            else
-            {
-                MessageBox.Show("The info link provided by this mod is invalid.");
-            }
+            ProcessInfoLink(infoLink);
             this.Opacity = 1;
         }
 
@@ -560,18 +572,7 @@ namespace BeatSaberModManager
                 // Instead of opening the form, simply open the link in browser window
                 //new FormDetailViewer((ReleaseInfo)listViewMods.SelectedItems[0].Tag).ShowDialog();
                 string infoLink = ((ReleaseInfo)listViewMods.SelectedItems[0].Tag).infoLink;
-                if (infoLink == null)
-                {
-                    MessageBox.Show("No info link was provided by this mod.");
-                }
-                else if (Uri.IsWellFormedUriString(infoLink, UriKind.RelativeOrAbsolute))
-                {
-                    Process.Start(infoLink);
-                }
-                else
-                {
-                    MessageBox.Show("The info link provided by this mod is invalid.");
-                }
+                ProcessInfoLink(infoLink);
             }
         }
 

@@ -63,6 +63,8 @@
             this.tabControlSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabControlMain = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageOptions = new System.Windows.Forms.TabPage();
+            this.extrasGroupBox = new System.Windows.Forms.GroupBox();
+            this.openSettingsFolder = new MaterialSkin.Controls.MaterialFlatButton();
             this.oneClickGroupBox = new System.Windows.Forms.GroupBox();
             this.toggleRegisterOneClick = new MaterialSkin.Controls.MaterialCheckBox();
             this.themeGroupBox = new System.Windows.Forms.GroupBox();
@@ -86,13 +88,14 @@
             this.tableLayoutPanelInfo.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPageOptions.SuspendLayout();
+            this.extrasGroupBox.SuspendLayout();
             this.oneClickGroupBox.SuspendLayout();
             this.themeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxDirectory
             // 
-            this.textBoxDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.textBoxDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxDirectory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.textBoxDirectory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -378,7 +381,7 @@
             // 
             // panelInfo
             // 
-            this.panelInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panelInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelInfo.BackColor = System.Drawing.SystemColors.Info;
             this.panelInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -402,7 +405,7 @@
             // 
             // tableLayoutPanelInfo
             // 
-            this.tableLayoutPanelInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tableLayoutPanelInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanelInfo.BackColor = System.Drawing.SystemColors.Info;
             this.tableLayoutPanelInfo.ColumnCount = 1;
@@ -432,7 +435,7 @@
             // 
             // textBoxPluginsPath
             // 
-            this.textBoxPluginsPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.textBoxPluginsPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPluginsPath.BackColor = System.Drawing.SystemColors.Info;
             this.textBoxPluginsPath.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -484,7 +487,7 @@
             // 
             // tabControlSelector
             // 
-            this.tabControlSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.tabControlSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlSelector.BaseTabControl = this.tabControlMain;
             this.tabControlSelector.Depth = 0;
@@ -497,8 +500,8 @@
             // 
             // tabControlMain
             // 
-            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMain.Controls.Add(this.tabPageCore);
             this.tabControlMain.Controls.Add(this.tabPageCredits);
@@ -515,6 +518,7 @@
             // 
             // tabPageOptions
             // 
+            this.tabPageOptions.Controls.Add(this.extrasGroupBox);
             this.tabPageOptions.Controls.Add(this.oneClickGroupBox);
             this.tabPageOptions.Controls.Add(this.themeGroupBox);
             this.tabPageOptions.Controls.Add(this.versionWarningLabel);
@@ -528,9 +532,39 @@
             this.tabPageOptions.Text = "Options";
             this.tabPageOptions.UseVisualStyleBackColor = true;
             // 
+            // extrasGroupBox
+            // 
+            this.extrasGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.extrasGroupBox.Controls.Add(this.openSettingsFolder);
+            this.extrasGroupBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extrasGroupBox.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.extrasGroupBox.Location = new System.Drawing.Point(15, 293);
+            this.extrasGroupBox.Name = "extrasGroupBox";
+            this.extrasGroupBox.Size = new System.Drawing.Size(829, 80);
+            this.extrasGroupBox.TabIndex = 21;
+            this.extrasGroupBox.TabStop = false;
+            this.extrasGroupBox.Text = "Extras";
+            // 
+            // openSettingsFolder
+            // 
+            this.openSettingsFolder.AutoSize = true;
+            this.openSettingsFolder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.openSettingsFolder.Depth = 0;
+            this.openSettingsFolder.Location = new System.Drawing.Point(21, 29);
+            this.openSettingsFolder.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.openSettingsFolder.MouseState = MaterialSkin.MouseState.HOVER;
+            this.openSettingsFolder.Name = "openSettingsFolder";
+            this.openSettingsFolder.Primary = false;
+            this.openSettingsFolder.Size = new System.Drawing.Size(168, 36);
+            this.openSettingsFolder.TabIndex = 0;
+            this.openSettingsFolder.Text = "Open Settings Folder";
+            this.openSettingsFolder.UseVisualStyleBackColor = true;
+            this.openSettingsFolder.Click += new System.EventHandler(this.openSettingsFolderButton_Click);
+            // 
             // oneClickGroupBox
             // 
-            this.oneClickGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.oneClickGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.oneClickGroupBox.Controls.Add(this.toggleRegisterOneClick);
             this.oneClickGroupBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -561,7 +595,7 @@
             // 
             // themeGroupBox
             // 
-            this.themeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.themeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.themeGroupBox.Controls.Add(this.radioThemeRed);
             this.themeGroupBox.Controls.Add(this.radioThemeBlue);
@@ -776,6 +810,8 @@
             this.tabControlMain.ResumeLayout(false);
             this.tabPageOptions.ResumeLayout(false);
             this.tabPageOptions.PerformLayout();
+            this.extrasGroupBox.ResumeLayout(false);
+            this.extrasGroupBox.PerformLayout();
             this.oneClickGroupBox.ResumeLayout(false);
             this.oneClickGroupBox.PerformLayout();
             this.themeGroupBox.ResumeLayout(false);
@@ -834,6 +870,8 @@
         private System.Windows.Forms.PictureBox donateModdersBox;
         private System.Windows.Forms.GroupBox oneClickGroupBox;
         private MaterialSkin.Controls.MaterialCheckBox toggleRegisterOneClick;
+        private System.Windows.Forms.GroupBox extrasGroupBox;
+        private MaterialSkin.Controls.MaterialFlatButton openSettingsFolder;
     }
 }
 

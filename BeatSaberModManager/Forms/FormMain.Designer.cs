@@ -546,7 +546,7 @@
             this.extrasGroupBox.Size = new System.Drawing.Size(829, 80);
             this.extrasGroupBox.TabIndex = 21;
             this.extrasGroupBox.TabStop = false;
-            this.extrasGroupBox.Text = "Extras";
+            this.extrasGroupBox.Text = "Debugging";
             // 
             // openSettingsFolder
             // 

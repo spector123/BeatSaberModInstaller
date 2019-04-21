@@ -78,6 +78,7 @@
             this.buttonInstall = new MaterialSkin.Controls.MaterialFlatButton();
             this.buttonViewInfo = new MaterialSkin.Controls.MaterialFlatButton();
             this.labelStatus = new MaterialSkin.Controls.MaterialLabel();
+            this.resetSettingsButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.tabPageCore.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.tabPageCredits.SuspendLayout();
@@ -536,6 +537,7 @@
             // 
             this.extrasGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.extrasGroupBox.Controls.Add(this.resetSettingsButton);
             this.extrasGroupBox.Controls.Add(this.openSettingsFolder);
             this.extrasGroupBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.extrasGroupBox.ForeColor = System.Drawing.Color.DeepSkyBlue;
@@ -778,6 +780,22 @@
             this.labelStatus.Text = "Status: NULL";
             this.labelStatus.DoubleClick += new System.EventHandler(this.LabelStatus_DoubleClick);
             // 
+            // resetSettingsButton
+            // 
+            this.resetSettingsButton.AutoSize = true;
+            this.resetSettingsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.resetSettingsButton.Depth = 0;
+            this.resetSettingsButton.Location = new System.Drawing.Point(197, 29);
+            this.resetSettingsButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.resetSettingsButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.resetSettingsButton.Name = "resetSettingsButton";
+            this.resetSettingsButton.Primary = false;
+            this.resetSettingsButton.Size = new System.Drawing.Size(203, 36);
+            this.resetSettingsButton.TabIndex = 1;
+            this.resetSettingsButton.Text = "Reset Settings to Default";
+            this.resetSettingsButton.UseVisualStyleBackColor = true;
+            this.resetSettingsButton.Click += new System.EventHandler(this.resetSettingsButton_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -872,6 +890,7 @@
         private MaterialSkin.Controls.MaterialCheckBox toggleRegisterOneClick;
         private System.Windows.Forms.GroupBox extrasGroupBox;
         private MaterialSkin.Controls.MaterialFlatButton openSettingsFolder;
+        private MaterialSkin.Controls.MaterialFlatButton resetSettingsButton;
     }
 }
 

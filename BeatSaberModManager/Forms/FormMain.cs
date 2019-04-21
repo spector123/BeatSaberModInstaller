@@ -696,5 +696,10 @@ namespace BeatSaberModManager
                 return;
             }
         }
+
+        private void resetSettingsButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

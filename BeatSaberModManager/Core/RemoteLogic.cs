@@ -73,9 +73,6 @@ namespace BeatSaberModManager.Core
 
                     var files = current["downloads"];
 
-                    JSONNode steam = files[0];
-                    JSONNode oculus = files[1];
-
                     for (var f = 0; f < files.Count; ++f)
                     {
                         files[f]["url"] = BeatModsURL + files[f]["url"];
@@ -83,10 +80,26 @@ namespace BeatSaberModManager.Core
 
                     if (files.Count > 1)
                     {
+                        JSONNode steam = null;
+                        JSONNode oculus = null;
                         for (var f = 0; f < files.Count; ++f)
                         {
                             if (files[f]["type"] == "steam") steam = files[f];
                             if (files[f]["type"] == "oculus") oculus = files[f];
+                        }
+
+                        if (steam == null && oculus == null)
+                        {
+                            MessageBox.Show($"Could not find Steam or Oculus release for {current["name"]}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            continue;
+                        }else if (steam == null)
+                        {
+                            MessageBox.Show($"Could not find steam release for {current["name"]}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            continue;
+                        }else if (oculus == null)
+                        {
+                            MessageBox.Show($"Could not find oculus release for {current["name"]}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            continue;
                         }
 
                         CreateRelease(

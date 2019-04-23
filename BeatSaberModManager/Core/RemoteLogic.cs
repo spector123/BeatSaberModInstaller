@@ -63,7 +63,6 @@ namespace BeatSaberModManager.Core
             string raw = GetBeatModsReleases();
             if (raw != null)
             {
-                var scoreSaberFound = false;
                 var mods = JSON.Parse(raw);
                 for (int i = 0; i < mods.Count; i++)
                 {
@@ -120,11 +119,6 @@ namespace BeatSaberModManager.Core
                             current["description"], current["link"], 0, "0.13.2", files[0]["url"],
                             current["category"], Platform.Default, dependsOn, conflictsWith));
                     }
-                }
-
-                if (!scoreSaberFound)
-                {
-                    MessageBox.Show($"ScoreSaber was not found in BeatMods API result!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

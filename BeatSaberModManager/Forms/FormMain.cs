@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using BeatSaberModManager.DataModels;
 using System.Diagnostics;
 using System.Drawing;
+using System.Configuration;
 using SemVer;
 using Version = SemVer.Version;
 using MaterialSkin.Controls;
@@ -670,6 +671,52 @@ namespace BeatSaberModManager
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Process.Start("https://wiki.assistant.moe/about");
+        }
+
+        private void openSettingsFolderButton_Click(object sender, EventArgs e)
+        {
+            // https://stackoverflow.com/a/481064
+            string userConfigPath = ConfigurationManager.OpenExeConfiguration(
+                  ConfigurationUserLevel.PerUserRoamingAndLocal).FilePath;
+            
+            if (userConfigPath == null)
+            {
+                MessageBox.Show($"Could not find user config file!:\n", "Error");
+                return;
+            }
+
+            userConfigPath = userConfigPath.Substring(0, userConfigPath.LastIndexOf(@"\"));
+
+            try
+            {
+                Process.Start(userConfigPath);
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Could not open user config path!:\n{userConfigPath}", "Error");
+                return;
+            }
+        }
+
+        private void resetSettingsButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to reset the application settings?\n\n" +
+                "This will clear your selected mods, theme, and install path.",
+                "Warning",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                Properties.Settings.Default.Reset();
+
+                // Prevent application from thinking it was just updated, and thus loading settings from old version
+                Properties.Settings.Default.UpgradeRequired = false;
+                Properties.Settings.Default.Save();
+
+                MessageBox.Show("Settings reset!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Restart();
+            }
         }
     }
 }

@@ -20,11 +20,29 @@ namespace BeatSaberModManager.Core
         public string GetInstallationPath()
         {
             // Check if install path is already saved
-            if (Properties.Settings.Default.InstallPath != null)
+            if (Properties.Settings.Default.InstallPath.Length != 0
+                && Properties.Settings.Default.Platform != (int)Platform.Default)
             {
                 if (File.Exists(Path.Combine(Properties.Settings.Default.InstallPath, AppFileName)))
                 {
                     installPath = Properties.Settings.Default.InstallPath;
+
+                    if ((Platform)Properties.Settings.Default.Platform == Platform.Steam)
+                    {
+                        platform = Platform.Steam;
+                    } else if ((Platform)Properties.Settings.Default.Platform == Platform.Oculus)
+                    {
+                        platform = Platform.Oculus;
+                    } else
+                    {
+                        // If the platform isn't saved, prompt user to select
+                        FormPlatformSelect selector = new FormPlatformSelect(this);
+                        selector.ShowDialog();
+
+                        Properties.Settings.Default.Platform = (int)platform;
+                        Properties.Settings.Default.Save();
+                    }
+
                     return installPath;
                 }
             }
@@ -139,7 +157,6 @@ namespace BeatSaberModManager.Core
                     }
                 }
             }
-
             return null;
         }
         private string NotFoundHandler()
@@ -157,8 +174,7 @@ namespace BeatSaberModManager.Core
                             FormPlatformSelect selector = new FormPlatformSelect(this);
                             selector.ShowDialog();
                             found = true;
-                            Properties.Settings.Default.InstallPath = path;
-                            Properties.Settings.Default.Save();
+                            SaveInstallPath(path);
                             return path;
                         }
                         else
@@ -198,6 +214,24 @@ namespace BeatSaberModManager.Core
                 }
             }
             return string.Empty;
+        }
+
+        public string GetPlatformString()
+        {
+            switch (platform)
+            {
+                case Platform.Steam: return "Steam";
+                case Platform.Oculus: return "Oculus";
+            }
+            return "Default";
+        }
+
+        // Ensure that platform is saved along with install path
+        public void SaveInstallPath(string _path)
+        {
+            Properties.Settings.Default.InstallPath = _path;
+            Properties.Settings.Default.Platform = (int)platform;
+            Properties.Settings.Default.Save();
         }
     }
 }

@@ -58,13 +58,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxPluginsPath = new System.Windows.Forms.TextBox();
             this.helpInfoLabel3 = new System.Windows.Forms.Label();
-            this.versionWarningLabel = new System.Windows.Forms.Label();
             this.browseInstallationButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tabControlSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabControlMain = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageOptions = new System.Windows.Forms.TabPage();
-            this.platformLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.comboBox_gameVersions = new System.Windows.Forms.ComboBox();
             this.extrasGroupBox = new System.Windows.Forms.GroupBox();
+            this.platformLabel = new MaterialSkin.Controls.MaterialLabel();
             this.resetSettingsButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.openSettingsFolder = new MaterialSkin.Controls.MaterialFlatButton();
             this.oneClickGroupBox = new System.Windows.Forms.GroupBox();
@@ -80,6 +80,7 @@
             this.buttonInstall = new MaterialSkin.Controls.MaterialFlatButton();
             this.buttonViewInfo = new MaterialSkin.Controls.MaterialFlatButton();
             this.labelStatus = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageCore.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.tabPageCredits.SuspendLayout();
@@ -106,7 +107,7 @@
             this.textBoxDirectory.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxDirectory.Location = new System.Drawing.Point(15, 41);
             this.textBoxDirectory.Name = "textBoxDirectory";
-            this.textBoxDirectory.Size = new System.Drawing.Size(797, 26);
+            this.textBoxDirectory.Size = new System.Drawing.Size(687, 26);
             this.textBoxDirectory.TabIndex = 0;
             this.textBoxDirectory.TextChanged += new System.EventHandler(this.textBoxDirectory_TextChanged);
             // 
@@ -460,24 +461,12 @@
             this.helpInfoLabel3.TabIndex = 3;
             this.helpInfoLabel3.Text = "You can uninstall mods by removing the .dll from that folder.";
             // 
-            // versionWarningLabel
-            // 
-            this.versionWarningLabel.AutoSize = true;
-            this.versionWarningLabel.BackColor = System.Drawing.Color.Transparent;
-            this.versionWarningLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.versionWarningLabel.ForeColor = System.Drawing.Color.Tomato;
-            this.versionWarningLabel.Location = new System.Drawing.Point(179, 22);
-            this.versionWarningLabel.Name = "versionWarningLabel";
-            this.versionWarningLabel.Size = new System.Drawing.Size(69, 15);
-            this.versionWarningLabel.TabIndex = 11;
-            this.versionWarningLabel.Text = "v0.13.2 only";
-            // 
             // browseInstallationButton
             // 
             this.browseInstallationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.browseInstallationButton.Depth = 0;
             this.browseInstallationButton.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.browseInstallationButton.Location = new System.Drawing.Point(818, 40);
+            this.browseInstallationButton.Location = new System.Drawing.Point(708, 40);
             this.browseInstallationButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.browseInstallationButton.Name = "browseInstallationButton";
             this.browseInstallationButton.Primary = true;
@@ -520,10 +509,11 @@
             // 
             // tabPageOptions
             // 
+            this.tabPageOptions.Controls.Add(this.materialLabel3);
+            this.tabPageOptions.Controls.Add(this.comboBox_gameVersions);
             this.tabPageOptions.Controls.Add(this.extrasGroupBox);
             this.tabPageOptions.Controls.Add(this.oneClickGroupBox);
             this.tabPageOptions.Controls.Add(this.themeGroupBox);
-            this.tabPageOptions.Controls.Add(this.versionWarningLabel);
             this.tabPageOptions.Controls.Add(this.folderPathLabel);
             this.tabPageOptions.Controls.Add(this.textBoxDirectory);
             this.tabPageOptions.Controls.Add(this.browseInstallationButton);
@@ -534,18 +524,15 @@
             this.tabPageOptions.Text = "Options";
             this.tabPageOptions.UseVisualStyleBackColor = true;
             // 
-            // platformLabel
+            // comboBox_gameVersions
             // 
-            this.platformLabel.AutoSize = true;
-            this.platformLabel.Depth = 0;
-            this.platformLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.platformLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.platformLabel.Location = new System.Drawing.Point(17, 35);
-            this.platformLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.platformLabel.Name = "platformLabel";
-            this.platformLabel.Size = new System.Drawing.Size(123, 19);
-            this.platformLabel.TabIndex = 22;
-            this.platformLabel.Text = "Platform: Default";
+            this.comboBox_gameVersions.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_gameVersions.FormattingEnabled = true;
+            this.comboBox_gameVersions.Location = new System.Drawing.Point(750, 40);
+            this.comboBox_gameVersions.Name = "comboBox_gameVersions";
+            this.comboBox_gameVersions.Size = new System.Drawing.Size(100, 27);
+            this.comboBox_gameVersions.TabIndex = 22;
+            this.comboBox_gameVersions.SelectedIndexChanged += new System.EventHandler(this.comboBox_gameVersions_SelectedIndexChanged);
             // 
             // extrasGroupBox
             // 
@@ -562,6 +549,19 @@
             this.extrasGroupBox.TabIndex = 21;
             this.extrasGroupBox.TabStop = false;
             this.extrasGroupBox.Text = "Debugging";
+            // 
+            // platformLabel
+            // 
+            this.platformLabel.AutoSize = true;
+            this.platformLabel.Depth = 0;
+            this.platformLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.platformLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.platformLabel.Location = new System.Drawing.Point(17, 35);
+            this.platformLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.platformLabel.Name = "platformLabel";
+            this.platformLabel.Size = new System.Drawing.Size(123, 19);
+            this.platformLabel.TabIndex = 22;
+            this.platformLabel.Text = "Platform: Default";
             // 
             // resetSettingsButton
             // 
@@ -811,6 +811,19 @@
             this.labelStatus.Text = "Status: NULL";
             this.labelStatus.DoubleClick += new System.EventHandler(this.LabelStatus_DoubleClick);
             // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(746, 19);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(104, 19);
+            this.materialLabel3.TabIndex = 23;
+            this.materialLabel3.Text = "Game Version";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -864,7 +877,6 @@
         private System.Windows.Forms.TabPage tabPageCredits;
         private System.Windows.Forms.ColumnHeader columnHeaderVersion;
         private System.Windows.Forms.TabPage tabPageHelp;
-        private System.Windows.Forms.Label versionWarningLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelInfo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxPluginsPath;
@@ -907,6 +919,8 @@
         private MaterialSkin.Controls.MaterialFlatButton openSettingsFolder;
         private MaterialSkin.Controls.MaterialFlatButton resetSettingsButton;
         private MaterialSkin.Controls.MaterialLabel platformLabel;
+        private System.Windows.Forms.ComboBox comboBox_gameVersions;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
     }
 }
 

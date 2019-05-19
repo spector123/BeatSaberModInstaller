@@ -123,7 +123,6 @@ namespace BeatSaberModManager
 
         private void RemoteLoad()
         {
-            /*
             UpdateStatus("Loading game versions...");
             remote.GetGameVersions();
             for (int i = 0; i < remote.gameVersions.Length; i++)
@@ -132,7 +131,7 @@ namespace BeatSaberModManager
                 this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.Items.Add(gv.value); })); 
             }
             this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.SelectedIndex = 0; }));
-            */
+            
             //this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.Items.Add("0.13.2"); }));
             //this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.SelectedIndex = 0; }));
             UpdateStatus("Loading releases...");

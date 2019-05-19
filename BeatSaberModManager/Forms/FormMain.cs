@@ -13,6 +13,7 @@ using SemVer;
 using Version = SemVer.Version;
 using MaterialSkin.Controls;
 using MaterialSkin;
+using System.Text.RegularExpressions;
 
 namespace BeatSaberModManager
 {
@@ -125,12 +126,24 @@ namespace BeatSaberModManager
         {
             UpdateStatus("Loading game versions...");
             remote.GetGameVersions();
+
+            string savedGameVersion = Properties.Settings.Default.GameVersion;
+
+            // Strip whitespace in case some edits the file manually
+            savedGameVersion = Regex.Replace(savedGameVersion, @"\s+", "");
+
+            int savedSelectedIndex = 0;
             for (int i = 0; i < remote.gameVersions.Length; i++)
             {
                 GameVersion gv = remote.gameVersions[i];
                 this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.Items.Add(gv.value); })); 
+
+                if (gv.value.Equals(savedGameVersion))
+                {
+                    savedSelectedIndex = i;
+                }
             }
-            this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.SelectedIndex = 0; }));
+            this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.SelectedIndex = savedSelectedIndex; }));
 
             UpdateStatus("Loading releases...");
             remote.PopulateReleases();
@@ -151,6 +164,10 @@ namespace BeatSaberModManager
             {
                 ComboBox comboBox = (ComboBox)sender;
                 GameVersion gameVersion = remote.gameVersions[comboBox.SelectedIndex];
+                
+                // Save to settings
+                Properties.Settings.Default.GameVersion = gameVersion.value;
+                Properties.Settings.Default.Save();
 
                 remote.selectedGameVersion = gameVersion;
                 new Thread(() => { LoadFromComboBox(); }).Start();

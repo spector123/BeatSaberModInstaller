@@ -94,17 +94,5 @@ namespace BeatSaberModManager.Properties {
                 this["Platform"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string GameVersion {
-            get {
-                return ((string)(this["GameVersion"]));
-            }
-            set {
-                this["GameVersion"] = value;
-            }
-        }
     }
 }

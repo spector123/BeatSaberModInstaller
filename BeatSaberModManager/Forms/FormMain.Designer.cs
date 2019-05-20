@@ -62,6 +62,7 @@
             this.tabControlSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabControlMain = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageOptions = new System.Windows.Forms.TabPage();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.comboBox_gameVersions = new System.Windows.Forms.ComboBox();
             this.extrasGroupBox = new System.Windows.Forms.GroupBox();
             this.platformLabel = new MaterialSkin.Controls.MaterialLabel();
@@ -80,7 +81,6 @@
             this.buttonInstall = new MaterialSkin.Controls.MaterialFlatButton();
             this.buttonViewInfo = new MaterialSkin.Controls.MaterialFlatButton();
             this.labelStatus = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageCore.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.tabPageCredits.SuspendLayout();
@@ -524,6 +524,19 @@
             this.tabPageOptions.Text = "Options";
             this.tabPageOptions.UseVisualStyleBackColor = true;
             // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(746, 19);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(104, 19);
+            this.materialLabel3.TabIndex = 23;
+            this.materialLabel3.Text = "Game Version";
+            // 
             // comboBox_gameVersions
             // 
             this.comboBox_gameVersions.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -810,19 +823,6 @@
             this.labelStatus.TabIndex = 18;
             this.labelStatus.Text = "Status: NULL";
             this.labelStatus.DoubleClick += new System.EventHandler(this.LabelStatus_DoubleClick);
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(746, 19);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(104, 19);
-            this.materialLabel3.TabIndex = 23;
-            this.materialLabel3.Text = "Game Version";
             // 
             // FormMain
             // 

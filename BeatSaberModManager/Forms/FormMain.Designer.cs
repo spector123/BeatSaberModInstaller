@@ -29,8 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.textBoxDirectory = new System.Windows.Forms.TextBox();
             this.tabPageCore = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.comboBox_gameVersions = new System.Windows.Forms.ComboBox();
+            this.folderPathLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.textBoxDirectory = new System.Windows.Forms.TextBox();
+            this.browseInstallationButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.listViewMods = new System.Windows.Forms.ListView();
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -58,12 +64,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxPluginsPath = new System.Windows.Forms.TextBox();
             this.helpInfoLabel3 = new System.Windows.Forms.Label();
-            this.browseInstallationButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.tabControlSelector = new MaterialSkin.Controls.MaterialTabSelector();
             this.tabControlMain = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPageOptions = new System.Windows.Forms.TabPage();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.comboBox_gameVersions = new System.Windows.Forms.ComboBox();
             this.extrasGroupBox = new System.Windows.Forms.GroupBox();
             this.platformLabel = new MaterialSkin.Controls.MaterialLabel();
             this.resetSettingsButton = new MaterialSkin.Controls.MaterialFlatButton();
@@ -77,11 +80,12 @@
             this.radioThemeGreen = new MaterialSkin.Controls.MaterialRadioButton();
             this.toggleTheme = new MaterialSkin.Controls.MaterialCheckBox();
             this.radioThemeBlueGrey = new MaterialSkin.Controls.MaterialRadioButton();
-            this.folderPathLabel = new MaterialSkin.Controls.MaterialLabel();
             this.buttonInstall = new MaterialSkin.Controls.MaterialFlatButton();
             this.buttonViewInfo = new MaterialSkin.Controls.MaterialFlatButton();
             this.labelStatus = new MaterialSkin.Controls.MaterialLabel();
             this.tabPageCore.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.tabPageCredits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.donateModdersBox)).BeginInit();
@@ -96,6 +100,81 @@
             this.themeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
+            // tabPageCore
+            // 
+            this.tabPageCore.Controls.Add(this.tableLayoutPanel1);
+            this.tabPageCore.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCore.Name = "tabPageCore";
+            this.tabPageCore.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCore.Size = new System.Drawing.Size(860, 401);
+            this.tabPageCore.TabIndex = 0;
+            this.tabPageCore.Text = "Plugins";
+            this.tabPageCore.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.listViewMods, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(854, 395);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.materialLabel3);
+            this.panel1.Controls.Add(this.comboBox_gameVersions);
+            this.panel1.Controls.Add(this.folderPathLabel);
+            this.panel1.Controls.Add(this.textBoxDirectory);
+            this.panel1.Controls.Add(this.browseInstallationButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(848, 64);
+            this.panel1.TabIndex = 3;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(739, 7);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(104, 19);
+            this.materialLabel3.TabIndex = 33;
+            this.materialLabel3.Text = "Game Version";
+            // 
+            // comboBox_gameVersions
+            // 
+            this.comboBox_gameVersions.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_gameVersions.FormattingEnabled = true;
+            this.comboBox_gameVersions.Location = new System.Drawing.Point(743, 28);
+            this.comboBox_gameVersions.Name = "comboBox_gameVersions";
+            this.comboBox_gameVersions.Size = new System.Drawing.Size(100, 27);
+            this.comboBox_gameVersions.TabIndex = 32;
+            this.comboBox_gameVersions.SelectedIndexChanged += new System.EventHandler(this.comboBox_gameVersions_SelectedIndexChanged);
+            // 
+            // folderPathLabel
+            // 
+            this.folderPathLabel.AutoSize = true;
+            this.folderPathLabel.Depth = 0;
+            this.folderPathLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.folderPathLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.folderPathLabel.Location = new System.Drawing.Point(5, 7);
+            this.folderPathLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.folderPathLabel.Name = "folderPathLabel";
+            this.folderPathLabel.Size = new System.Drawing.Size(165, 19);
+            this.folderPathLabel.TabIndex = 31;
+            this.folderPathLabel.Text = "Beat Saber Folder Path:";
+            // 
             // textBoxDirectory
             // 
             this.textBoxDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -105,22 +184,26 @@
             this.textBoxDirectory.Enabled = false;
             this.textBoxDirectory.Font = new System.Drawing.Font("Consolas", 12F);
             this.textBoxDirectory.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxDirectory.Location = new System.Drawing.Point(15, 41);
+            this.textBoxDirectory.Location = new System.Drawing.Point(8, 29);
             this.textBoxDirectory.Name = "textBoxDirectory";
-            this.textBoxDirectory.Size = new System.Drawing.Size(687, 26);
-            this.textBoxDirectory.TabIndex = 0;
+            this.textBoxDirectory.Size = new System.Drawing.Size(681, 26);
+            this.textBoxDirectory.TabIndex = 29;
             this.textBoxDirectory.TextChanged += new System.EventHandler(this.textBoxDirectory_TextChanged);
             // 
-            // tabPageCore
+            // browseInstallationButton
             // 
-            this.tabPageCore.Controls.Add(this.listViewMods);
-            this.tabPageCore.Location = new System.Drawing.Point(4, 22);
-            this.tabPageCore.Name = "tabPageCore";
-            this.tabPageCore.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCore.Size = new System.Drawing.Size(860, 401);
-            this.tabPageCore.TabIndex = 0;
-            this.tabPageCore.Text = "Plugins";
-            this.tabPageCore.UseVisualStyleBackColor = true;
+            this.browseInstallationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.browseInstallationButton.Depth = 0;
+            this.browseInstallationButton.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.browseInstallationButton.Location = new System.Drawing.Point(695, 28);
+            this.browseInstallationButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.browseInstallationButton.Name = "browseInstallationButton";
+            this.browseInstallationButton.Primary = true;
+            this.browseInstallationButton.Size = new System.Drawing.Size(26, 26);
+            this.browseInstallationButton.TabIndex = 30;
+            this.browseInstallationButton.Text = "..";
+            this.browseInstallationButton.UseVisualStyleBackColor = true;
+            this.browseInstallationButton.Click += new System.EventHandler(this.BrowseInstallationButton_Click);
             // 
             // listViewMods
             // 
@@ -134,14 +217,12 @@
             this.listViewMods.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewMods.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.listViewMods.FullRowSelect = true;
-            this.listViewMods.Location = new System.Drawing.Point(3, 3);
+            this.listViewMods.Location = new System.Drawing.Point(3, 73);
             this.listViewMods.Name = "listViewMods";
-            this.listViewMods.Size = new System.Drawing.Size(854, 395);
-            this.listViewMods.TabIndex = 0;
+            this.listViewMods.Size = new System.Drawing.Size(848, 319);
+            this.listViewMods.TabIndex = 2;
             this.listViewMods.UseCompatibleStateImageBehavior = false;
             this.listViewMods.View = System.Windows.Forms.View.Details;
-            this.listViewMods.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listViewMods_ItemChecked);
-            this.listViewMods.SelectedIndexChanged += new System.EventHandler(this.listViewMods_SelectedIndexChanged);
             // 
             // columnHeaderName
             // 
@@ -461,21 +542,6 @@
             this.helpInfoLabel3.TabIndex = 3;
             this.helpInfoLabel3.Text = "You can uninstall mods by removing the .dll from that folder.";
             // 
-            // browseInstallationButton
-            // 
-            this.browseInstallationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.browseInstallationButton.Depth = 0;
-            this.browseInstallationButton.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.browseInstallationButton.Location = new System.Drawing.Point(708, 40);
-            this.browseInstallationButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.browseInstallationButton.Name = "browseInstallationButton";
-            this.browseInstallationButton.Primary = true;
-            this.browseInstallationButton.Size = new System.Drawing.Size(26, 26);
-            this.browseInstallationButton.TabIndex = 13;
-            this.browseInstallationButton.Text = "..";
-            this.browseInstallationButton.UseVisualStyleBackColor = true;
-            this.browseInstallationButton.Click += new System.EventHandler(this.BrowseInstallationButton_Click);
-            // 
             // tabControlSelector
             // 
             this.tabControlSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -509,43 +575,15 @@
             // 
             // tabPageOptions
             // 
-            this.tabPageOptions.Controls.Add(this.materialLabel3);
-            this.tabPageOptions.Controls.Add(this.comboBox_gameVersions);
             this.tabPageOptions.Controls.Add(this.extrasGroupBox);
             this.tabPageOptions.Controls.Add(this.oneClickGroupBox);
             this.tabPageOptions.Controls.Add(this.themeGroupBox);
-            this.tabPageOptions.Controls.Add(this.folderPathLabel);
-            this.tabPageOptions.Controls.Add(this.textBoxDirectory);
-            this.tabPageOptions.Controls.Add(this.browseInstallationButton);
             this.tabPageOptions.Location = new System.Drawing.Point(4, 22);
             this.tabPageOptions.Name = "tabPageOptions";
             this.tabPageOptions.Size = new System.Drawing.Size(860, 401);
             this.tabPageOptions.TabIndex = 3;
             this.tabPageOptions.Text = "Options";
             this.tabPageOptions.UseVisualStyleBackColor = true;
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(746, 19);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(104, 19);
-            this.materialLabel3.TabIndex = 23;
-            this.materialLabel3.Text = "Game Version";
-            // 
-            // comboBox_gameVersions
-            // 
-            this.comboBox_gameVersions.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_gameVersions.FormattingEnabled = true;
-            this.comboBox_gameVersions.Location = new System.Drawing.Point(750, 40);
-            this.comboBox_gameVersions.Name = "comboBox_gameVersions";
-            this.comboBox_gameVersions.Size = new System.Drawing.Size(100, 27);
-            this.comboBox_gameVersions.TabIndex = 22;
-            this.comboBox_gameVersions.SelectedIndexChanged += new System.EventHandler(this.comboBox_gameVersions_SelectedIndexChanged);
             // 
             // extrasGroupBox
             // 
@@ -762,19 +800,6 @@
             this.radioThemeBlueGrey.UseVisualStyleBackColor = true;
             this.radioThemeBlueGrey.CheckedChanged += new System.EventHandler(this.RadioThemeBlueGrey_CheckedChanged);
             // 
-            // folderPathLabel
-            // 
-            this.folderPathLabel.AutoSize = true;
-            this.folderPathLabel.Depth = 0;
-            this.folderPathLabel.Font = new System.Drawing.Font("Roboto", 11F);
-            this.folderPathLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.folderPathLabel.Location = new System.Drawing.Point(12, 19);
-            this.folderPathLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.folderPathLabel.Name = "folderPathLabel";
-            this.folderPathLabel.Size = new System.Drawing.Size(165, 19);
-            this.folderPathLabel.TabIndex = 14;
-            this.folderPathLabel.Text = "Beat Saber Folder Path:";
-            // 
             // buttonInstall
             // 
             this.buttonInstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -842,6 +867,9 @@
             this.Text = "Beat Saber Mod Manager";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabPageCore.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.contextMenu.ResumeLayout(false);
             this.tabPageCredits.ResumeLayout(false);
             this.tabPageCredits.PerformLayout();
@@ -855,7 +883,6 @@
             this.tableLayoutPanelInfo.PerformLayout();
             this.tabControlMain.ResumeLayout(false);
             this.tabPageOptions.ResumeLayout(false);
-            this.tabPageOptions.PerformLayout();
             this.extrasGroupBox.ResumeLayout(false);
             this.extrasGroupBox.PerformLayout();
             this.oneClickGroupBox.ResumeLayout(false);
@@ -868,14 +895,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBoxDirectory;
         private System.Windows.Forms.TabPage tabPageCore;
-        private System.Windows.Forms.ListView listViewMods;
-        private System.Windows.Forms.ColumnHeader columnHeaderName;
-        private System.Windows.Forms.ColumnHeader columnHeaderAuthor;
         private System.Windows.Forms.TabPage tabPageCredits;
-        private System.Windows.Forms.ColumnHeader columnHeaderVersion;
         private System.Windows.Forms.TabPage tabPageHelp;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelInfo;
         private System.Windows.Forms.Label label2;
@@ -883,7 +904,6 @@
         private System.Windows.Forms.Label helpInfoLabel3;
         private System.Windows.Forms.Label helpInfoLabel1;
         private System.Windows.Forms.Panel panelInfo;
-        private MaterialSkin.Controls.MaterialRaisedButton browseInstallationButton;
         private MaterialSkin.Controls.MaterialTabSelector tabControlSelector;
         private MaterialSkin.Controls.MaterialTabControl tabControlMain;
         private System.Windows.Forms.TabPage tabPageOptions;
@@ -891,7 +911,6 @@
         private MaterialSkin.Controls.MaterialFlatButton buttonInstall;
         private MaterialSkin.Controls.MaterialFlatButton buttonViewInfo;
         private MaterialSkin.Controls.MaterialLabel labelStatus;
-        private MaterialSkin.Controls.MaterialLabel folderPathLabel;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialRaisedButton creditBeatmods;
         private MaterialSkin.Controls.MaterialRaisedButton creditVanZeben;
@@ -919,8 +938,17 @@
         private MaterialSkin.Controls.MaterialFlatButton openSettingsFolder;
         private MaterialSkin.Controls.MaterialFlatButton resetSettingsButton;
         private MaterialSkin.Controls.MaterialLabel platformLabel;
-        private System.Windows.Forms.ComboBox comboBox_gameVersions;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.ComboBox comboBox_gameVersions;
+        private MaterialSkin.Controls.MaterialLabel folderPathLabel;
+        private System.Windows.Forms.TextBox textBoxDirectory;
+        private MaterialSkin.Controls.MaterialRaisedButton browseInstallationButton;
+        private System.Windows.Forms.ListView listViewMods;
+        private System.Windows.Forms.ColumnHeader columnHeaderName;
+        private System.Windows.Forms.ColumnHeader columnHeaderAuthor;
+        private System.Windows.Forms.ColumnHeader columnHeaderVersion;
     }
 }
 

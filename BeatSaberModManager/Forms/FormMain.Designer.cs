@@ -594,7 +594,7 @@
             this.extrasGroupBox.Controls.Add(this.openSettingsFolder);
             this.extrasGroupBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.extrasGroupBox.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.extrasGroupBox.Location = new System.Drawing.Point(15, 293);
+            this.extrasGroupBox.Location = new System.Drawing.Point(16, 217);
             this.extrasGroupBox.Name = "extrasGroupBox";
             this.extrasGroupBox.Size = new System.Drawing.Size(829, 105);
             this.extrasGroupBox.TabIndex = 21;
@@ -653,7 +653,7 @@
             this.oneClickGroupBox.Controls.Add(this.toggleRegisterOneClick);
             this.oneClickGroupBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.oneClickGroupBox.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.oneClickGroupBox.Location = new System.Drawing.Point(15, 207);
+            this.oneClickGroupBox.Location = new System.Drawing.Point(16, 131);
             this.oneClickGroupBox.Name = "oneClickGroupBox";
             this.oneClickGroupBox.Size = new System.Drawing.Size(829, 80);
             this.oneClickGroupBox.TabIndex = 16;
@@ -689,7 +689,7 @@
             this.themeGroupBox.Controls.Add(this.radioThemeBlueGrey);
             this.themeGroupBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.themeGroupBox.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.themeGroupBox.Location = new System.Drawing.Point(15, 79);
+            this.themeGroupBox.Location = new System.Drawing.Point(16, 3);
             this.themeGroupBox.Name = "themeGroupBox";
             this.themeGroupBox.Size = new System.Drawing.Size(829, 122);
             this.themeGroupBox.TabIndex = 15;

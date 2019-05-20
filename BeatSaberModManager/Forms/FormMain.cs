@@ -235,6 +235,14 @@ namespace BeatSaberModManager
             listViewMods.Groups.Clear();
             int other = listViewMods.Groups.Add(new ListViewGroup("Other", HorizontalAlignment.Left));
             groups.Add("Other", other);
+            
+            if (remote.releases.Count <= 0)
+            {
+                string infoMessage =
+                    "There are no mods available for this game version!\n\n" +
+                    "Make sure you have the right game version selected!";
+                MessageBox.Show(infoMessage, "No mods found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
             foreach (ReleaseInfo release in remote.releases)
             {
@@ -268,7 +276,6 @@ namespace BeatSaberModManager
                     }
                     listViewMods.Items.Add(item);
                     release.itemHandle = item;
-
                 }
             }
 

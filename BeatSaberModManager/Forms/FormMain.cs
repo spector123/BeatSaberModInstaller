@@ -64,6 +64,7 @@ namespace BeatSaberModManager
                     defaultMods.Add(mod.ToLower());
                 }
             }
+
         }
         #endregion
 

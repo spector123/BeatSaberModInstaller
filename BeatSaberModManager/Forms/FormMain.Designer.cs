@@ -223,6 +223,9 @@
             this.listViewMods.TabIndex = 2;
             this.listViewMods.UseCompatibleStateImageBehavior = false;
             this.listViewMods.View = System.Windows.Forms.View.Details;
+            this.listViewMods.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listViewMods_ItemChecked);
+            this.listViewMods.SelectedIndexChanged += new System.EventHandler(this.listViewMods_SelectedIndexChanged);
+
             // 
             // columnHeaderName
             // 

@@ -123,23 +123,80 @@ namespace BeatSaberModManager
 
         private void RemoteLoad()
         {
-            /*
             UpdateStatus("Loading game versions...");
             remote.GetGameVersions();
+
+            string installedVersion = GetInstalledGameVersion();
+            int installedVersionIndex = -1;
+            string allVersionsString = "";
+            string latestVersion = remote.gameVersions[0].value;
             for (int i = 0; i < remote.gameVersions.Length; i++)
             {
                 GameVersion gv = remote.gameVersions[i];
-                this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.Items.Add(gv.value); })); 
+                this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.Items.Add(gv.value); }));
+                
+                allVersionsString = string.Concat(allVersionsString, (i > 0 ? ", " : "") + gv.value);
+                if (gv.value.Equals(installedVersion)) installedVersionIndex = i;
             }
-            this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.SelectedIndex = 0; }));
-            */
-            //this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.Items.Add("0.13.2"); }));
-            //this.Invoke((MethodInvoker)(() => { comboBox_gameVersions.SelectedIndex = 0; }));
+
+            // Check if a new version has been added to BeatMods
+            if (Properties.Settings.Default.VersionsList != allVersionsString)
+            {
+                string infoMessage =
+                    "A new version of Beat Saber has been added to Beat Mods!\n" +
+                    latestVersion + "\n\n" +
+                    "This version has been selected automatically.\n" +
+                    "You can change it in the settings tab!";
+
+                // If this is a fresh install, don't show version message
+                if (Properties.Settings.Default.VersionsList != "")
+                {
+                    MessageBox.Show(infoMessage, "Beat Saber v" + latestVersion, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                Properties.Settings.Default.VersionsList = allVersionsString;
+                Properties.Settings.Default.Save();
+            }
+
+
+            // Show error message if installed version isn't found
+            if (installedVersionIndex == -1 && installedVersion != null)
+            {
+                string versionErrorMessage =
+                    "You appear to have Beat Saber version " + installedVersion + " installed,\n" +
+                    "but it is not supported by Beat Mods!\n\n" +
+                    "Beat Mods only supports the following versions:\n" +
+                    allVersionsString +
+                    "\n\n" +
+                    "Install mods at your own risk!";
+                MessageBox.Show(versionErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            // Set the comboBox to the installed version
+            this.Invoke((MethodInvoker)(() => {
+                comboBox_gameVersions.SelectedIndex = 0;
+            }));
+
             UpdateStatus("Loading releases...");
             remote.PopulateReleases();
             installer = new InstallerLogic(remote.releases, path.installPath);
             installer.StatusUpdate += Installer_StatusUpdate;
             this.Invoke((MethodInvoker)(() => { ShowReleases(); }));
+        }
+
+        private string GetInstalledGameVersion()
+        {
+            string gameVersionFilePath = Path.Combine(path.installPath, "BeatSaberVersion.txt");
+            try
+            {
+                string[] lines = File.ReadAllLines(gameVersionFilePath);
+                return lines.First<string>();
+            } catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                MessageBox.Show("Could not get installed game version!\n\nChange version in OPTIONS tab!\n\nERROR:\n" + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
 
         bool first = true;
@@ -149,7 +206,7 @@ namespace BeatSaberModManager
             // God knows why
             // listViewMods.Items.Clear();
             UpdateStatus("Loading releases...");
-            //comboBox_gameVersions.Enabled = false;
+            comboBox_gameVersions.Enabled = false;
             if (!first)
             {
                 ComboBox comboBox = (ComboBox)sender;
@@ -172,12 +229,20 @@ namespace BeatSaberModManager
 
         private void ShowReleases()
         {
-            //comboBox_gameVersions.Enabled = true;
+            comboBox_gameVersions.Enabled = true;
             Dictionary<string, int> groups = new Dictionary<string, int>();
 
             listViewMods.Groups.Clear();
             int other = listViewMods.Groups.Add(new ListViewGroup("Other", HorizontalAlignment.Left));
             groups.Add("Other", other);
+            
+            if (remote.releases.Count <= 0)
+            {
+                string infoMessage =
+                    "There are no mods available for this game version!\n\n" +
+                    "Make sure you have the right game version selected!";
+                MessageBox.Show(infoMessage, "No mods found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
             foreach (ReleaseInfo release in remote.releases)
             {
@@ -211,7 +276,6 @@ namespace BeatSaberModManager
                     }
                     listViewMods.Items.Add(item);
                     release.itemHandle = item;
-
                 }
             }
 
